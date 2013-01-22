@@ -21,5 +21,7 @@ class opHostingBetaEvent
     {
       throw new RuntimeException("ユーザー数の上限に達しています。 有料サービスに切り替えてください");
     }
+
   }
+
 }

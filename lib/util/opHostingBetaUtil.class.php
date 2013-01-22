@@ -7,6 +7,12 @@ class opHostingBetaUtil
   {
     return true;
   }
- 
+
+  public static function canUserAdd()
+  {
+    $limit = new opHostingBetaLimit();
+
+    return $limit->canUserAddByAddCount(1);
+  }
 
 }

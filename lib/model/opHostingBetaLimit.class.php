@@ -23,4 +23,9 @@ class opHostingBetaLimit
     return (int) $searchResult[0]['COUNT'];
   }
 
+  public function canUserAddByAddCount($addCount)
+  {
+    return ($this->countRegistUser() + $addCount <= self::USER_LIMIT);
+  }
+
 }
