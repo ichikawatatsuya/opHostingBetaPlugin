@@ -12,25 +12,15 @@ class opHostingBetaLimit
 
   public function countRegistUser()
   {
-    static $queryCacheHash;
 
-    if (!$queryCacheHash)
-    {
-      $q = opDoctrineQuery::create();
-      $q->from('Member m');
-      $q->select('COUNT(*)');
-      $q->where('is_active = ?', true);
-      $searchResult = $q->fetchArray();
-      $queryCacheHash = $q->calculateQueryCacheHash();
-    }
-    else
-    {
-      $q->setCachedQueryCacheHash($queryCacheHash);
-      $searchResult = $q->fetchArray();
-    }
+    $q = opDoctrineQuery::create();
 
-    return (int)$searchResult[0]['COUNT'];
+    $q->from('Member m');
+    $q->select('COUNT(*)');
+    $q->where('is_active = ?', true);
+    $searchResult = $q->fetchArray();
 
+    return (int) $searchResult[0]['COUNT'];
   }
 
 }
